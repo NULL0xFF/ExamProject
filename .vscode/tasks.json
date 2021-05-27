@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "java",
+            "mainClass": "ExamProject",
+            "targetPath": "${workspaceFolder}/bin/${workspaceFolderBasename}.jar",
+            "elements": [
+                "${compileOutput}",
+                "${dependencies}"
+            ],
+            "problemMatcher": [],
+            "label": "Export to JAR file",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Create Binary Folder"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Create Binary Folder",
+            "command": "/bin/mkdir",
+            "args": [
+                "-p",
+                "bin"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "none",
+            "detail": "Pre-Task for Build"
+        }
+    ]
+}
